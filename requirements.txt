@@ -1,0 +1,5 @@
+# For update_cards_db.py (recommended for reliable HTTPS)
+requests>=2.28.0
+
+# For generate_thumbnails.py
+Pillow>=9.0.0

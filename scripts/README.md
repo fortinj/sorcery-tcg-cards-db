@@ -52,6 +52,42 @@ Summary:
 
 ---
 
+### `update_cards_db.py`
+
+Fetches card data from the official Sorcery API and updates `data/db/cards.json`.
+
+**What it does:**
+- Fetches all cards from `https://api.sorcerytcg.com/api/cards`
+- Normalizes variant slugs (hyphens → underscores) for compatibility with image filenames
+- Overwrites `data/db/cards.json` with the latest data (including new expansions)
+
+**Usage:**
+
+```bash
+# Run from repository root
+python scripts/update_cards_db.py
+```
+
+**Requirements:**
+- Python 3.7+
+- `requests` (recommended): `pip install requests` — or use built-in `urllib` (slower, may have SSL issues on some systems)
+
+**Example output:**
+```
+============================================================
+Sorcery TCG – Update Cards Database
+============================================================
+
+Fetching cards from API...
+  Retrieved 1234 cards
+Normalizing slugs for image compatibility...
+Writing to data/db/cards.json...
+
+Database updated successfully.
+```
+
+---
+
 ## 🤖 GitHub Actions
 
 The thumbnail generation runs automatically via GitHub Actions when:
